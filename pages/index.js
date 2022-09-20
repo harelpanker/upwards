@@ -5,8 +5,9 @@ import { GraphQLClient } from 'graphql-request';
 import Header from '../components/shared/Header';
 import About from '../components/pages/home-page/About';
 import Logos from '../components/pages/home-page/Logos';
+import Events from '../components/pages/home-page/Events';
 
-export default function Home({ companies }) {
+export default function Home({ companies, events }) {
   return (
     <>
       <Head>
@@ -21,6 +22,7 @@ export default function Home({ companies }) {
         <Hero />
         <About />
         <Logos companies={companies} />
+        <Events events={events} />
       </main>
     </>
   );
@@ -47,9 +49,37 @@ export async function getStaticProps() {
     `
   );
 
+  const { events } = await hygraph.request(
+    `
+      {
+        events {
+          id
+          title
+          dateFreeText
+          startDate
+          description
+          banner {
+            height
+            url
+            width
+          }
+          companies {
+            id
+            logo {
+              url
+              width
+              height
+            }
+          }
+        }
+      }
+    `
+  );
+
   return {
     props: {
       companies,
+      events,
     },
   };
 }
