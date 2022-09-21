@@ -1,6 +1,6 @@
 import Image from 'next/future/image';
 
-const Logos = ({ companies }) => {
+const Logos = ({ logos }) => {
   return (
     <section className='py-10 sm:py-16 lg:py-24'>
       <div className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
@@ -10,15 +10,15 @@ const Logos = ({ companies }) => {
           </h2>
         </div>
 
-        <ul className='grid items-center max-w-4xl grid-cols-2 mx-auto mt-12 md:mt-20 md:grid-cols-4 gap-x-10 gap-y-16'>
-          {companies.map((company) => (
-            <li key={company.id}>
+        <ul className='grid max-w-4xl grid-cols-2 mx-auto mt-12 md:mt-20 md:grid-cols-4 gap-x-10 gap-y-16'>
+          {logos.map((logo) => (
+            <li key={logo.id} className='flex items-start'>
               <Image
-                className='object-contain w-full h-12 mx-auto grayscale'
-                width={company.logo.width}
-                height={company.logo.height}
-                src={company.logo.url}
-                alt={company.companyName}
+                className='object-contain h-12 grayscale w-auto'
+                width={logo.logo.width}
+                height={logo.logo.height}
+                src={logo.logo.url}
+                alt={logo.companyName}
               />
             </li>
           ))}

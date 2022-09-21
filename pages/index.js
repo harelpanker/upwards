@@ -7,7 +7,7 @@ import About from '../components/pages/home-page/About';
 import Logos from '../components/pages/home-page/Logos';
 import Events from '../components/pages/home-page/Events';
 
-export default function Home({ companies, events }) {
+export default function Home({ logos, events }) {
   return (
     <>
       <Head>
@@ -21,7 +21,7 @@ export default function Home({ companies, events }) {
       <main className='relative z-10'>
         <Hero />
         <About />
-        <Logos companies={companies} />
+        <Logos logos={logos} />
         <Events events={events} />
       </main>
     </>
@@ -30,13 +30,13 @@ export default function Home({ companies, events }) {
 
 export async function getStaticProps() {
   const hygraph = new GraphQLClient(
-    'https://api-eu-central-1.hygraph.com/v2/cl847c7x41mu801ug37k21fon/master'
+    'https://api-us-east-1.hygraph.com/v2/cl8a9qn1d05a901t8fydhgwt9/master'
   );
 
-  const { companies } = await hygraph.request(
+  const { logos } = await hygraph.request(
     `
       {
-        companies {
+        logos {
           id
           companyName
           logo {
@@ -55,16 +55,17 @@ export async function getStaticProps() {
         events {
           id
           title
-          dateFreeText
-          startDate
-          description
-          banner {
-            height
+          image {
             url
             width
+            height
           }
-          companies {
+          privateLink
+          showPrivateLink
+          description
+          logos {
             id
+            companyName
             logo {
               url
               width
@@ -78,7 +79,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      companies,
+      logos,
       events,
     },
   };
