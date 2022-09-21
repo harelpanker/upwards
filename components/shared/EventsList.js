@@ -4,7 +4,7 @@ const EventsList = ({ events }) => {
   return (
     <ul className='grid grid-cols-1 gap-14 xl:grid-cols-3'>
       {events.map((event) => (
-        <EventCard event={event} />
+        <EventCard key={event.id} event={event} />
       ))}
     </ul>
   );
