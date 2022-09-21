@@ -6,6 +6,7 @@ import Header from '../components/shared/Header';
 import About from '../components/pages/home-page/About';
 import Logos from '../components/pages/home-page/Logos';
 import Events from '../components/pages/home-page/Events';
+import CTA from '../components/shared/CTA';
 
 export default function Home({ logos, events }) {
   return (
@@ -16,13 +17,12 @@ export default function Home({ logos, events }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Header />
-
       <main className='relative z-10'>
         <Hero />
         <About />
         <Logos logos={logos} />
         <Events events={events} />
+        <CTA />
       </main>
     </>
   );
@@ -52,9 +52,10 @@ export async function getStaticProps() {
   const { events } = await hygraph.request(
     `
       {
-        events {
+        events(first: 3, orderBy: date_DESC) {
           id
           title
+          date
           image {
             url
             width

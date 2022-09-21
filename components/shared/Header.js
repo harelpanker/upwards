@@ -1,5 +1,4 @@
-import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/future/image';
@@ -18,7 +17,7 @@ const Header = () => {
       <div className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
         <div className='relative flex items-center justify-between'>
           <div className='flex-shrink-0'>
-            <Link href='/' title=''>
+            <Link href='/'>
               <a className='flex rounded outline-none focus:ring-1 focus:ring-slate-900 focus:ring-offset-2'>
                 <Image alt='upward logo' src={Logo} height={50} />
               </a>

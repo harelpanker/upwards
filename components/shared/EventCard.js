@@ -35,9 +35,4 @@ const EventCard = ({ event }) => {
     </li>
   );
 };
-// companies [id, logo {height,url,width}]
-// dateFreeText
-// id
-// startDate
-// title
 export default EventCard;
