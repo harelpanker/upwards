@@ -46,11 +46,11 @@ const Header = () => {
       }`}>
       <div className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
         <div className='relative flex items-center justify-between'>
-          <div className='flex-shrink-0'>
-            <Link href='/'>
-              <Image alt='upward logo' src={Logo} height={50} />
-            </Link>
-          </div>
+          <Link href='/'>
+            <a title='logo'>
+              <Image alt='Upward logo' src={Logo} height={50} />
+            </a>
+          </Link>
 
           <div className='flex lg:hidden'>
             <button

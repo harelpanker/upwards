@@ -26,12 +26,12 @@ const NavbarMobile = ({ isOpen, closeModal }) => {
             <Transition.Child
               as={Fragment}
               enter='ease-out duration-300'
-              enterFrom='opacity-0 scale-95'
-              enterTo='opacity-100 scale-100'
+              enterFrom='opacity-0'
+              enterTo='opacity-100'
               leave='ease-in duration-200'
-              leaveFrom='opacity-100 scale-100'
-              leaveTo='opacity-0 scale-95'>
-              <Dialog.Panel className='absolute z-50 w-full h-full p-5 flex flex-col gap-10'>
+              leaveFrom='opacity-100'
+              leaveTo='opacity-0'>
+              <Dialog.Panel className='absolute z-50 w-full h-full py-6 px-5 flex flex-col gap-10'>
                 <div className='flex justify-between'>
                   <Link href='/'>
                     <a>
@@ -63,6 +63,7 @@ const NavbarMobile = ({ isOpen, closeModal }) => {
                     <li>
                       <Link href='/events'>
                         <a
+                          onClick={closeModal}
                           title='Events'
                           className='text-base font-medium text-slate-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-slate-900 focus:ring-offset-2'>
                           Events
@@ -72,6 +73,7 @@ const NavbarMobile = ({ isOpen, closeModal }) => {
                     <li>
                       <div className=' lg:items-center lg:justify-center lg:space-x-10'>
                         <a
+                          onClick={closeModal}
                           rel='noopener noreferrer'
                           target='_blank'
                           href='https://forms.gle/uPLrbN6XaKSNwX2Y7'
