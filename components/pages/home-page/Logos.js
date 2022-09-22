@@ -12,9 +12,9 @@ const Logos = ({ logos }) => {
 
         <ul className='grid max-w-4xl grid-cols-2 mx-auto mt-12 md:mt-20 md:grid-cols-4 gap-x-10 gap-y-16'>
           {logos.map((logo) => (
-            <li key={logo.id} className='flex items-start'>
+            <li key={logo.id} className='flex justify-center'>
               <Image
-                className='object-contain h-12 grayscale w-auto'
+                className='object-contain h-12 grayscale'
                 width={logo.logo.width}
                 height={logo.logo.height}
                 src={logo.logo.url}

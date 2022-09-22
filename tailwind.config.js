@@ -5,6 +5,9 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    fontFamily: {
+      switzer: ['Switzer', 'sans-serif'],
+    },
     container: {
       center: true,
     },
