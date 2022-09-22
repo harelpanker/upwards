@@ -15,7 +15,7 @@ function CTA() {
             title='Join our next meetup'
             rel='noopener noreferrer'
             target='_blank'
-            className='relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-slate-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900'
+            className='relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-slate-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900'
             role='button'>
             Join our next meetup
           </a>

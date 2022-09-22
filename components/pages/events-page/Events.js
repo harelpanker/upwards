@@ -1,11 +1,11 @@
 import React from 'react';
-import Events from '../../pages/events-page/Events';
+import EventsList from '../../shared/EventsList';
 
 const Events = ({ events }) => {
   return (
-    <section className='px-5 py-20 xl:py-32'>
+    <section className='px-5 pb-20'>
       <div className='container flex flex-col gap-14 items-center'>
-        <Events events={events} />
+        <EventsList events={events} />
       </div>
     </section>
   );
