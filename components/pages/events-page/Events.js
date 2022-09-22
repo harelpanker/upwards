@@ -1,7 +1,6 @@
-import React from 'react';
 import EventsList from '../../shared/EventsList';
 
-const Events = ({ events }) => {
+const EventsSection = ({ events }) => {
   return (
     <section className='px-5 pb-20'>
       <div className='container flex flex-col gap-14 items-center'>
@@ -11,4 +10,4 @@ const Events = ({ events }) => {
   );
 };
 
-export default Events;
+export default EventsSection;

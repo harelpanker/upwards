@@ -1,8 +1,6 @@
 import Image from 'next/future/image';
 
 const EventCard = ({ event }) => {
-  const date = new Date();
-
   return (
     <li className='p-4 border border-opacity-20 shadow-md border-slate-900 rounded flex flex-col gap-4 max-w-[420px] relative'>
       <Image

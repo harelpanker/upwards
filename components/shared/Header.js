@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/future/image';
@@ -6,21 +6,49 @@ import Image from 'next/future/image';
 import Logo from '/public/images/shared/logo.png';
 import NavbarMobile from './NavbarMobile';
 
+const scrollOffset = 100;
+const trackScroll = true;
+
 const Header = () => {
   let [isOpen, setIsOpen] = useState(false);
 
   const closeModal = () => setIsOpen(false);
   const openModal = () => setIsOpen(true);
 
+  const [hasScrolled, setHasScrolled] = useState(!trackScroll);
+
+  const checkScroll = useCallback(
+    (e) => {
+      const window = e.currentTarget;
+      if (window.scrollY > scrollOffset) {
+        setHasScrolled(true);
+      } else {
+        setHasScrolled(false);
+      }
+    },
+    [scrollOffset]
+  );
+
+  useEffect(() => {
+    // track events only if requested
+    if (trackScroll) {
+      window.addEventListener('scroll', checkScroll);
+      return () => {
+        window.removeEventListener('scroll', checkScroll);
+      };
+    }
+  }, [checkScroll, trackScroll]);
+
   return (
-    <header className='sticky top-0 bg-slate-50 z-50 py-4 md:py-6'>
+    <header
+      className={`sticky top-0 transi duration-700 bg-slate-50 z-50 ${
+        hasScrolled ? 'shadow-md py-4' : 'py-6'
+      }`}>
       <div className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
         <div className='relative flex items-center justify-between'>
           <div className='flex-shrink-0'>
             <Link href='/'>
-              <a className='flex rounded outline-none focus:ring-1 focus:ring-slate-900 focus:ring-offset-2'>
-                <Image alt='upward logo' src={Logo} height={50} />
-              </a>
+              <Image alt='upward logo' src={Logo} height={50} />
             </Link>
           </div>
 
@@ -48,7 +76,7 @@ const Header = () => {
             <Link href='/events'>
               <a
                 title='Events'
-                className='text-base font-medium text-slate-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-slate-900 focus:ring-offset-2'>
+                className='text-base font-medium text-slate-900 transition-all duration-200 hover:text-opacity-70'>
                 Events
               </a>
             </Link>
@@ -59,7 +87,7 @@ const Header = () => {
                 target='_blank'
                 href='https://forms.gle/uPLrbN6XaKSNwX2Y7'
                 title='Sign in'
-                className='px-5 py-2 text-base font-semibold leading-7 text-slate-900 transition-all duration-200 bg-transparent border border-slate-900 rounded-xl font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 hover:bg-slate-900 hover:text-white focus:bg-slate-900 focus:text-white'
+                className='px-6 py-3 text-base font-semibold leading-7 text-slate-900 transition-all duration-300 bg-transparent border border-slate-900 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 hover:bg-slate-900 hover:text-white focus:bg-slate-900 focus:text-white'
                 role='button'>
                 Join us
               </a>

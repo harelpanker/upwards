@@ -2,10 +2,9 @@ import Head from 'next/head';
 import Hero from '../components/pages/home-page/Hero';
 
 import { GraphQLClient } from 'graphql-request';
-import Header from '../components/shared/Header';
 import About from '../components/pages/home-page/About';
 import Logos from '../components/pages/home-page/Logos';
-import Events from '../components/pages/home-page/Events';
+import EventsSection from '../components/pages/home-page/EventsSection';
 import CTA from '../components/shared/CTA';
 
 export default function Home({ logos, events }) {
@@ -21,7 +20,7 @@ export default function Home({ logos, events }) {
         <Hero />
         <About />
         <Logos logos={logos} />
-        <Events events={events} />
+        <EventsSection events={events} />
         <CTA />
       </main>
     </>
