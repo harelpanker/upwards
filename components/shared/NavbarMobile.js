@@ -14,10 +14,7 @@ const NavbarMobile = ({ isOpen, closeModal }) => {
           as={Fragment}
           enter='ease-out duration-300'
           enterFrom='opacity-0'
-          enterTo='opacity-100'
-          leave='ease-in duration-200'
-          leaveFrom='opacity-100'
-          leaveTo='opacity-0'>
+          enterTo='opacity-100'>
           <div className='fixed inset-0 bg-slate-50' />
         </Transition.Child>
 
@@ -27,14 +24,11 @@ const NavbarMobile = ({ isOpen, closeModal }) => {
               as={Fragment}
               enter='ease-out duration-300'
               enterFrom='opacity-0'
-              enterTo='opacity-100'
-              leave='ease-in duration-200'
-              leaveFrom='opacity-100'
-              leaveTo='opacity-0'>
+              enterTo='opacity-100'>
               <Dialog.Panel className='absolute z-50 w-full h-full py-6 px-5 flex flex-col gap-10'>
                 <div className='flex justify-between'>
                   <Link href='/'>
-                    <a>
+                    <a onClick={() => closeModal()}>
                       <Image src={Logo} height={50} alt='upwards' />
                     </a>
                   </Link>
